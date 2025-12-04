@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>yeyeye613 — 个人主页</title>
+    <meta name="description" content="yeyeye613 的个人主页 — 项目、博客与联系信息" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <style>
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent: #7dd3fc;
+            --glass: rgba(255, 255, 255, 0.04);
+            color-scheme: dark;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(180deg, var(--bg), #071021);
+            color: #e6eef6
+        }
+
+        .container {
+            width: min(1100px, 94%);
+            margin: 40px auto
+        }
+
+        header {
+            display: flex;
+            gap: 16px;
+            align-items: center
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+            font-weight: 700;
+            font-size: 36px;
+            color: #022
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px
+        }
+
+        p.lead {
+            margin: 6px 0 0;
+            color: var(--muted)
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
+        }
+
+        nav {
+            margin-top: 18px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 10px;
+            background: var(--glass);
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 14px
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 20px;
+            margin-top: 18px
+        }
+
+        section h2 {
+            margin-top: 0
+        }
+
+        .projects {
+            display: grid;
+            gap: 12px
+        }
+
+        .proj {
+            display: flex;
+            gap: 12px;
+            align-items: center
+        }
+
+        .proj .meta {
+            font-size: 13px;
+            color: var(--muted)
+        }
+
+        aside .widget {
+            margin-bottom: 12px
+        }
+
+        footer {
+            margin: 40px 0 20px;
+            text-align: center;
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        /* responsive */
+        @media (max-width:880px) {
+            main {
+                grid-template-columns: 1fr
+            }
+
+            .avatar {
+                width: 72px;
+                height: 72px;
+                font-size: 28px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="card">
+            <div style="display:flex;gap:14px;align-items:center;">
+                <div class="avatar">YE</div>
+                <div>
+                    <h1>yeyeye613</h1>
+                    <p class="lead">爱好编程 · 开源 · 写博客 · 偶尔做小项目</p>
+                    <nav>
+                        <a class="btn" href="#projects">项目</a>
+                        <a class="btn" href="#about">关于</a>
+                        <a class="btn" href="#contact">联系</a>
+                        <a class="btn" href="https://github.com/yeyeye613" target="_blank">GitHub</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div>
+                <section id="projects" class="card">
+                    <h2>精选项目</h2>
+                    <div class="projects">
+                        <article class="proj">
+                            <div
+                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#0f1724);display:flex;align-items:center;justify-content:center;font-weight:600">
+                                M1</div>
+                            <div>
+                                <div style="font-weight:700">演示含漏洞的 Python 项目（Demo）</div>
+                                <div class="meta">演示语法：示例代码 + 静态审计集成 · Python</div>
+                            </div>
+                        </article>
+
+                        <article class="proj">
+                            <div
+                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#111827,#0f1724);display:flex;align-items:center;justify-content:center;font-weight:600">
+                                W</div>
+                            <div>
+                                <div style="font-weight:700">Web 审计智能体（AuditLuma 扩展）</div>
+                                <div class="meta">Semgrep / 静态 + 报告生成 · JS/TS/Python/Go</div>
+                            </div>
+                        </article>
+
+                        <article class="proj">
+                            <div
+                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0f1724,#04263a);display:flex;align-items:center;justify-content:center;font-weight:600">
+                                N</div>
+                            <div>
+                                <div style="font-weight:700">开源小工具合集</div>
+                                <div class="meta">CLI、脚本、模版 · 开源许可</div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="about" class="card" style="margin-top:12px">
+                    <h2>关于我</h2>
+                    <p>你好，我是 <strong>yeyeye613</strong>。目前主要做后端工具、自动化脚本和安全审计相关的项目。我喜欢把想法做成可复用的小工具，并把它们发布到 GitHub 上。</p>
+
+                    <h3 style="margin-bottom:6px">技术栈</h3>
+                    <p class="meta">Python · JavaScript / TypeScript · Go · Docker · Git · CI/CD</p>
+
+                    <h3 style="margin-top:12px">写作</h3>
+                    <p>我会把项目记录和研究笔记写成短篇博客，欢迎查看我的文章与教程。</p>
+                </section>
+
+                <section id="contact" class="card" style="margin-top:12px">
+                    <h2>联系我</h2>
+                    <p>邮箱（示例）：<code>hello@yeyeye613.dev</code></p>
+                    <p>也可以通过 GitHub 发送 Issues 或 Pull Request。</p>
+                    <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
+                        <a class="btn" href="https://github.com/yeyeye613" target="_blank">GitHub</a>
+                        <a class="btn" href="https://twitter.com/" target="_blank">Twitter</a>
+                    </div>
+                </section>
+
+            </div>
+
+            <aside>
+                <div class="card widget">
+                    <h3>最近更新</h3>
+                    <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
+                        <li>2025-11-26：发布代码审计智能体 DEMO</li>
+                        <li>2025-10-10：迁移博客到 GitHub Pages</li>
+                    </ul>
+                </div>
+
+                <div class="card widget">
+                    <h3>小工具</h3>
+                    <p class="meta">代码片段、部署脚本、模板等</p>
+                </div>
+
+                <div class="card widget">
+                    <h3>部署说明</h3>
+                    <p class="meta">把此文件命名为 <code>index.html</code>，放在仓库 <code>yeyeye613.github.io</code> 的根目录，开启 GitHub
+                        Pages 即可。</p>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            © <span id="year"></span> yeyeye613 · 这是一个示例页面 — 如需定制请告诉我你想要的风格或内容。
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        // 简单：按需扩展（主题切换、评论、RSS 等）
+    </script>
+</body>
+
+</html>
