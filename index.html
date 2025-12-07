@@ -1,254 +1,773 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>yeyeye613 — 个人主页</title>
-    <meta name="description" content="yeyeye613 的个人主页 — 项目、博客与联系信息" />
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World社团 - 杭州电子科技大学</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --bg: #0f1724;
-            --card: #0b1220;
-            --muted: #9aa4b2;
-            --accent: #7dd3fc;
-            --glass: rgba(255, 255, 255, 0.04);
-            color-scheme: dark;
-        }
-
         * {
-            box-sizing: border-box
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        html,
+        :root {
+            --primary-color: #1a5fb4;
+            --secondary-color: #3584e4;
+            --accent-color: #e01b24;
+            --light-color: #f6f5f4;
+            --dark-color: #241f31;
+            --text-color: #2e3436;
+            --light-text: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
         body {
-            height: 100%;
-            margin: 0;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: linear-gradient(180deg, var(--bg), #071021);
-            color: #e6eef6
+            background-color: #f8f9fa;
+            color: var(--text-color);
+            line-height: 1.6;
         }
 
         .container {
-            width: min(1100px, 94%);
-            margin: 40px auto
-        }
-
-        header {
-            display: flex;
-            gap: 16px;
-            align-items: center
-        }
-
-        .avatar {
-            width: 96px;
-            height: 96px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0ea5e9, #06b6d4);
-            font-weight: 700;
-            font-size: 36px;
-            color: #022
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 28px
-        }
-
-        p.lead {
-            margin: 6px 0 0;
-            color: var(--muted)
-        }
-
-        .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            border-radius: 14px;
-            padding: 18px;
-            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6);
-        }
-
-        nav {
-            margin-top: 18px;
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
 
         .btn {
-            padding: 8px 12px;
-            border-radius: 10px;
-            background: var(--glass);
-            color: var(--muted);
+            display: inline-block;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
             text-decoration: none;
-            font-size: 14px
         }
 
-        main {
-            display: grid;
-            grid-template-columns: 1fr 340px;
-            gap: 20px;
-            margin-top: 18px
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
-        section h2 {
-            margin-top: 0
+        .section {
+            padding: 80px 0;
         }
 
-        .projects {
-            display: grid;
-            gap: 12px
-        }
-
-        .proj {
-            display: flex;
-            gap: 12px;
-            align-items: center
-        }
-
-        .proj .meta {
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        aside .widget {
-            margin-bottom: 12px
-        }
-
-        footer {
-            margin: 40px 0 20px;
+        .section-title {
             text-align: center;
-            color: var(--muted);
-            font-size: 14px
+            margin-bottom: 50px;
+            position: relative;
         }
 
-        /* responsive */
-        @media (max-width:880px) {
-            main {
-                grid-template-columns: 1fr
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+        }
+
+        /* 导航栏 */
+        header {
+            background-color: var(--light-text);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo i {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* 英雄区域 */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(26, 95, 180, 0.8), rgba(53, 132, 228, 0.8)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--light-text);
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .btn {
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* 关于我们 */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        /* 部门介绍 */
+        .departments {
+            background-color: var(--light-color);
+        }
+
+        .departments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .department-card {
+            background-color: var(--light-text);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .department-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .department-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background-color: rgba(26, 95, 180, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .department-icon i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .department-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* 活动展示 */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background-color: var(--light-text);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .activity-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .activity-card:hover .activity-img img {
+            transform: scale(1.1);
+        }
+
+        .activity-content {
+            padding: 20px;
+        }
+
+        .activity-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        /* 加入我们 */
+        .join {
+            background-color: var(--dark-color);
+            color: var(--light-text);
+        }
+
+        .join-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .join-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .join-info p {
+            margin-bottom: 15px;
+        }
+
+        .join-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--light-text);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-left: 10px;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .about-content,
+            .join-content {
+                grid-template-columns: 1fr;
             }
 
-            .avatar {
-                width: 72px;
-                height: 72px;
-                font-size: 28px
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--light-text);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .social-links {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 60px 0;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <header class="card">
-            <div style="display:flex;gap:14px;align-items:center;">
-                <div class="avatar">YE</div>
-                <div>
-                    <h1>yeyeye613</h1>
-                    <p class="lead">爱好编程 · 开源 · 写博客 · 偶尔做小项目</p>
-                    <nav>
-                        <a class="btn" href="#projects">项目</a>
-                        <a class="btn" href="#about">关于</a>
-                        <a class="btn" href="#contact">联系</a>
-                        <a class="btn" href="https://github.com/yeyeye613" target="_blank">GitHub</a>
-                    </nav>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                    <i class="fas fa-code"></i>
+                    Hello World
+                </a>
+                <div class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#departments">部门介绍</a></li>
+                    <li><a href="#activities">社团活动</a></li>
+                    <li><a href="#join">加入我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hello World 社团</h1>
+                <p>杭州电子科技大学 · 探索科技前沿，激发创新思维</p>
+                <p>与志同道合的伙伴一起成长，创造无限可能</p>
+                <a href="#join" class="btn">立即加入</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我们</h2>
+                <p>Hello World社团的使命与愿景</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>创新、协作、成长</h3>
+                    <p>Hello World社团是杭州电子科技大学的一个技术型学生组织，专注于计算机科学与技术创新。我们致力于为对技术充满热情的学生提供一个学习、交流和成长的平台。</p>
+                    <p>社团成立于2014年，至今已有数百名成员从这里起步，走向技术前沿。我们的成员来自不同专业背景，但都怀揣着对技术的热爱和对创新的追求。</p>
+                    <p>在这里，你可以参与各种技术项目、参加专业讲座、与行业专家交流，并与志同道合的伙伴一起探索科技的无限可能。</p>
+                    <p>无论你是编程新手还是技术达人，Hello World社团都欢迎你的加入。我们相信，在协作与分享中，每个人都能获得成长与进步。</p>
+                    <a href="#departments" class="btn">了解部门</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Hello World社团团队合作">
                 </div>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <main>
-            <div>
-                <section id="projects" class="card">
-                    <h2>精选项目</h2>
-                    <div class="projects">
-                        <article class="proj">
-                            <div
-                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#1e293b,#0f1724);display:flex;align-items:center;justify-content:center;font-weight:600">
-                                M1</div>
-                            <div>
-                                <div style="font-weight:700">演示含漏洞的 Python 项目（Demo）</div>
-                                <div class="meta">演示语法：示例代码 + 静态审计集成 · Python</div>
-                            </div>
-                        </article>
-
-                        <article class="proj">
-                            <div
-                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#111827,#0f1724);display:flex;align-items:center;justify-content:center;font-weight:600">
-                                W</div>
-                            <div>
-                                <div style="font-weight:700">Web 审计智能体（AuditLuma 扩展）</div>
-                                <div class="meta">Semgrep / 静态 + 报告生成 · JS/TS/Python/Go</div>
-                            </div>
-                        </article>
-
-                        <article class="proj">
-                            <div
-                                style="width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#0f1724,#04263a);display:flex;align-items:center;justify-content:center;font-weight:600">
-                                N</div>
-                            <div>
-                                <div style="font-weight:700">开源小工具合集</div>
-                                <div class="meta">CLI、脚本、模版 · 开源许可</div>
-                            </div>
-                        </article>
-                    </div>
-                </section>
-
-                <section id="about" class="card" style="margin-top:12px">
-                    <h2>关于我</h2>
-                    <p>你好，我是 <strong>yeyeye613</strong>。目前主要做后端工具、自动化脚本和安全审计相关的项目。我喜欢把想法做成可复用的小工具，并把它们发布到 GitHub 上。</p>
-
-                    <h3 style="margin-bottom:6px">技术栈</h3>
-                    <p class="meta">Python · JavaScript / TypeScript · Go · Docker · Git · CI/CD</p>
-
-                    <h3 style="margin-top:12px">写作</h3>
-                    <p>我会把项目记录和研究笔记写成短篇博客，欢迎查看我的文章与教程。</p>
-                </section>
-
-                <section id="contact" class="card" style="margin-top:12px">
-                    <h2>联系我</h2>
-                    <p>邮箱（示例）：<code>hello@yeyeye613.dev</code></p>
-                    <p>也可以通过 GitHub 发送 Issues 或 Pull Request。</p>
-                    <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap">
-                        <a class="btn" href="https://github.com/yeyeye613" target="_blank">GitHub</a>
-                        <a class="btn" href="https://twitter.com/" target="_blank">Twitter</a>
-                    </div>
-                </section>
-
+    <!-- 部门介绍 -->
+    <section class="section departments" id="departments">
+        <div class="container">
+            <div class="section-title">
+                <h2>部门介绍</h2>
+                <p>三大技术部门，全方位培养技术能力</p>
             </div>
+            <div class="departments-grid">
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>前端部</h3>
+                    <p>专注于用户界面与交互体验，学习HTML、CSS、JavaScript等前端技术，掌握React、Vue等现代前端框架，打造美观、高效的Web应用。</p>
+                    <p>主要方向：响应式设计、用户体验、前端性能优化</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>后端部</h3>
+                    <p>专注于服务器端开发与数据处理，学习Java、Python、Node.js等后端技术，掌握数据库设计、API开发、系统架构等核心技能。</p>
+                    <p>主要方向：系统架构、数据库设计、API开发</p>
+                </div>
+                <div class="department-card">
+                    <div class="department-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>人工智能部</h3>
+                    <p>探索人工智能与机器学习前沿，学习Python、TensorFlow、PyTorch等技术，研究计算机视觉、自然语言处理等AI应用领域。</p>
+                    <p>主要方向：机器学习、深度学习、数据挖掘</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <aside>
-                <div class="card widget">
-                    <h3>最近更新</h3>
-                    <ul style="margin:8px 0 0;padding-left:18px;color:var(--muted)">
-                        <li>2025-11-26：发布代码审计智能体 DEMO</li>
-                        <li>2025-10-10：迁移博客到 GitHub Pages</li>
+    <!-- 社团活动 -->
+    <section class="section" id="activities">
+        <div class="container">
+            <div class="section-title">
+                <h2>社团活动</h2>
+                <p>丰富多彩的技术活动与项目</p>
+            </div>
+            <div class="activities-grid">
+                <div class="activity-card">
+                    <div class="activity-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="编程工作坊">
+                    </div>
+                    <div class="activity-content">
+                        <h3>编程工作坊</h3>
+                        <p>定期举办的编程学习活动，涵盖Python、JavaScript、Java等多种编程语言，适合不同水平的学习者。由经验丰富的学长学姐指导，帮助新人快速入门。</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-img">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="技术讲座">
+                    </div>
+                    <div class="activity-content">
+                        <h3>技术讲座</h3>
+                        <p>邀请行业专家和校友分享前沿技术趋势、职业发展经验和行业见解，拓宽成员的技术视野。主题涵盖前端框架、后端架构、AI应用等多个领域。</p>
+                    </div>
+                </div>
+                <div class="activity-card">
+                    <div class="activity-img">
+                        <img src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="项目开发">
+                    </div>
+                    <div class="activity-content">
+                        <h3>项目开发</h3>
+                        <p>团队协作开发实际项目，从需求分析到产品上线，锻炼成员的工程实践能力和团队协作能力。项目涵盖Web应用、移动应用、数据分析等多个方向。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 加入我们 -->
+    <section class="section join" id="join">
+        <div class="container">
+            <div class="section-title">
+                <h2>加入我们</h2>
+                <p>成为Hello World社团的一员</p>
+            </div>
+            <div class="join-content">
+                <div class="join-info">
+                    <h3>加入Hello World社团</h3>
+                    <p>无论你是技术新手还是经验丰富的开发者，我们都欢迎你的加入。在这里，你可以：</p>
+                    <ul>
+                        <li>• 学习前沿技术知识</li>
+                        <li>• 参与实际项目开发</li>
+                        <li>• 结识志同道合的伙伴</li>
+                        <li>• 获得职业发展指导</li>
+                        <li>• 参加各类技术竞赛</li>
                     </ul>
+                    <p>联系我们了解更多信息或直接填写右侧表单申请加入。</p>
+                    <div class="contact-details">
+                        <p><strong>邮箱：</strong> helloworld@hdu.edu.cn</p>
+                        <p><strong>地址：</strong> 杭州电子科技大学学生活动中心302室</p>
+                        <p><strong>活动时间：</strong> 每周五晚上7:00-9:00</p>
+                    </div>
                 </div>
-
-                <div class="card widget">
-                    <h3>小工具</h3>
-                    <p class="meta">代码片段、部署脚本、模板等</p>
+                <div class="join-form">
+                    <form id="joinForm">
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="studentId">学号</label>
+                            <input type="text" id="studentId" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="major">专业</label>
+                            <input type="text" id="major" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="department">意向部门</label>
+                            <select id="department" class="form-control" required>
+                                <option value="">请选择</option>
+                                <option value="frontend">前端部</option>
+                                <option value="backend">后端部</option>
+                                <option value="ai">人工智能部</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">技术经验</label>
+                            <textarea id="experience" class="form-control" rows="4" placeholder="请简要描述你的技术背景或项目经验"></textarea>
+                        </div>
+                        <button type="submit" class="btn">提交申请</button>
+                    </form>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="card widget">
-                    <h3>部署说明</h3>
-                    <p class="meta">把此文件命名为 <code>index.html</code>，放在仓库 <code>yeyeye613.github.io</code> 的根目录，开启 GitHub
-                        Pages 即可。</p>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Hello World 社团</div>
+                <div class="social-links">
+                    <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                    <a href="#" aria-label="QQ"><i class="fab fa-qq"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="邮箱"><i class="fas fa-envelope"></i></a>
                 </div>
-            </aside>
-        </main>
-
-        <footer>
-            © <span id="year"></span> yeyeye613 · 这是一个示例页面 — 如需定制请告诉我你想要的风格或内容。
-        </footer>
-    </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Hello World社团 - 杭州电子科技大学 版权所有</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-        // 简单：按需扩展（主题切换、评论、RSS 等）
+        // 导航菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // 关闭移动端菜单
+                    navLinks.classList.remove('active');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 表单处理
+        const joinForm = document.getElementById('joinForm');
+        
+        joinForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                studentId: document.getElementById('studentId').value,
+                major: document.getElementById('major').value,
+                department: document.getElementById('department').value,
+                experience: document.getElementById('experience').value
+            };
+            
+            // 存储到localStorage
+            let applications = JSON.parse(localStorage.getItem('helloWorldApplications')) || [];
+            applications.push({
+                ...formData,
+                timestamp: new Date().toISOString()
+            });
+            localStorage.setItem('helloWorldApplications', JSON.stringify(applications));
+            
+            // 显示成功消息
+            alert('申请提交成功！我们会尽快与你联系。');
+            
+            // 重置表单
+            joinForm.reset();
+        });
+
+        // 滚动时导航栏样式变化
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // 页面加载动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 0;
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 100);
+        });
     </script>
 </body>
-
 </html>
